@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\courseController;
 use App\Http\Controllers\localController;
 use App\Http\Controllers\supplierController;
 use App\Http\Controllers\serviceController;
@@ -34,3 +35,10 @@ Route::post('paymentMethods', [paymentMethodController::class, 'createPaymentMet
 Route::get('paymentMethods/{id}', [paymentMethodController::class, 'getPaymentMethodById']);
 Route::put('paymentMethods/{id}', [paymentMethodController::class, 'updatePaymentMethodById']);
 Route::delete('paymentMethods/{id}', [paymentMethodController::class, 'deletePaymentMethod']);
+
+// Rutas para courses
+Route::get('courses', [courseController::class, 'getCourses']);
+Route::post('courses', [courseController::class, 'createCourse']);
+Route::get('courses/{id}', [courseController::class, 'getCourseById']);
+Route::put('courses/{id}', [courseController::class, 'updateCourseById']);
+Route::delete('courses/{id}', [courseController::class, 'deleteCourse']);
