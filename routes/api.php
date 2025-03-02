@@ -5,6 +5,7 @@ use App\Http\Controllers\localController;
 use App\Http\Controllers\supplierController;
 use App\Http\Controllers\serviceController;
 use App\Http\Controllers\paymentMethodController;
+use App\Http\Controllers\studentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -42,3 +43,10 @@ Route::post('courses', [courseController::class, 'createCourse']);
 Route::get('courses/{id}', [courseController::class, 'getCourseById']);
 Route::put('courses/{id}', [courseController::class, 'updateCourseById']);
 Route::delete('courses/{id}', [courseController::class, 'deleteCourse']);
+
+// Rutas para students
+Route::get('students', [studentController::class, 'getStudents']);
+Route::post('students', [studentController::class, 'createStudent']);
+Route::get('students/{id}', [studentController::class, 'getStudentById']);
+Route::put('students/{id}', [studentController::class, 'updateStudentById']);
+Route::delete('students/{id}', [studentController::class, 'deleteStudent']);
