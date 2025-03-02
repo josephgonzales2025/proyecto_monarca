@@ -6,6 +6,7 @@ use App\Http\Controllers\supplierController;
 use App\Http\Controllers\serviceController;
 use App\Http\Controllers\paymentMethodController;
 use App\Http\Controllers\studentController;
+use App\Http\Controllers\teacherController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -50,3 +51,10 @@ Route::post('students', [studentController::class, 'createStudent']);
 Route::get('students/{id}', [studentController::class, 'getStudentById']);
 Route::put('students/{id}', [studentController::class, 'updateStudentById']);
 Route::delete('students/{id}', [studentController::class, 'deleteStudent']);
+
+// Rutas para teachers
+Route::get('teachers', [teacherController::class, 'getTeachers']);
+Route::post('teachers', [teacherController::class, 'createTeacher']);
+Route::get('teachers/{id}', [teacherController::class, 'getTeacherById']);
+Route::put('teachers/{id}', [teacherController::class, 'updateTeacherById']);
+Route::delete('teachers/{id}', [teacherController::class, 'deleteTeacher']);

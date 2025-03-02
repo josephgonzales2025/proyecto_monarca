@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('name', 255)->unique();
             $table->string('description', 255);
             $table->string('duration', 255);
-            $table->decimal('price', 6, 2);
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();
         });
