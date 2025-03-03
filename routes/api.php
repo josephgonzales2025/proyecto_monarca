@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\courseController;
 use App\Http\Controllers\localController;
+use App\Http\Controllers\paymentController;
 use App\Http\Controllers\supplierController;
 use App\Http\Controllers\serviceController;
 use App\Http\Controllers\paymentMethodController;
@@ -60,8 +61,8 @@ Route::put('teachers/{id}', [teacherController::class, 'updateTeacherById']);
 Route::delete('teachers/{id}', [teacherController::class, 'deleteTeacher']);
 
 // Rutas para payments
-Route::get('payments', [teacherController::class, 'getPayments']);
-Route::post('payments', [teacherController::class, 'createPayment']);
-Route::get('payments/{id}', [teacherController::class, 'getPaymentById']);
-Route::put('payments/{id}', [teacherController::class, 'updatePaymentById']);
-Route::delete('payments/{id}', [teacherController::class, 'deletePayment']);
+Route::get('payments', [paymentController::class, 'getPayments']);
+Route::post('payments', [paymentController::class, 'createPayment']);
+Route::get('payments/{id}', [paymentController::class, 'getPaymentById']);
+Route::put('payments/{id}', [paymentController::class, 'updatePaymentById']);
+Route::delete('payments/{id}', [paymentController::class, 'deletePayment']);

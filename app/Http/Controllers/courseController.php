@@ -32,7 +32,6 @@ class courseController extends Controller
             'name' => 'required|min:3|unique:courses|regex:/^[a-zA-Z\s]+$/',
             'description' => 'required|min:3',
             'duration' => 'required',
-            'price' => 'required|numeric',
             'status' => 'required'
         ]);
 
@@ -77,7 +76,6 @@ class courseController extends Controller
             'name' => 'min:3|regex:/^[a-zA-Z\s]+$/',
             'description' => 'min:3',
             'duration' => '',
-            'price' => 'numeric',
             'status' => ''
         ];
 

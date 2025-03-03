@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('student_id')->constrained('students')->onDelete('cascade');
             $table->foreignId('course_id')->constrained('courses')->onDelete('cascade');
             $table->foreignId('teacher_id')->constrained('teachers')->onDelete('cascade');
-            $table->decimal('monto',6,2);
+            $table->decimal('amount',6,2);
             $table->date('paymentDate');
             $table->enum('paymentStatus',['pending','cancelled'])->default('pending');
             $table->timestamps();
