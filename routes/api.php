@@ -58,3 +58,10 @@ Route::post('teachers', [teacherController::class, 'createTeacher']);
 Route::get('teachers/{id}', [teacherController::class, 'getTeacherById']);
 Route::put('teachers/{id}', [teacherController::class, 'updateTeacherById']);
 Route::delete('teachers/{id}', [teacherController::class, 'deleteTeacher']);
+
+// Rutas para payments
+Route::get('payments', [teacherController::class, 'getPayments']);
+Route::post('payments', [teacherController::class, 'createPayment']);
+Route::get('payments/{id}', [teacherController::class, 'getPaymentById']);
+Route::put('payments/{id}', [teacherController::class, 'updatePaymentById']);
+Route::delete('payments/{id}', [teacherController::class, 'deletePayment']);
