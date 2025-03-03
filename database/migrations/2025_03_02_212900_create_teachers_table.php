@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('days', 255);
             $table->time('start_time');
             $table->time('end_time');
+            $table->string('photo')->nullable();
             $table->timestamps();
         });
     }

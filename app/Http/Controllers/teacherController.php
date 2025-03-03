@@ -35,14 +35,24 @@ class teacherController extends Controller
             'specialty' => 'required|regex:/^[a-zA-Z\s]+$/',
             'days' => 'required',
             'start_time' => 'required',
-            'end_time' => 'required'
+            'end_time' => 'required',
+            'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validación de la foto
         ]);
 
         if($validator->fails()){
             return response()->json(['errors' => $validator->errors()], 422);
         }
 
-        $teacher = Teacher::create($validator->validate());
+        // Crear el profesor, sin la foto por ahora
+        $teacherData = $validator->validated(); // Obtener los datos validados
+
+        $teacher = Teacher::create($teacherData);
+
+        // Subir la foto si está presente
+        if ($request->hasFile('photo')) {
+            // Guardar la foto y obtener la ruta
+            $teacher->uploadPhoto($request->file('photo'));
+        }
 
         return response()->json([
             'message' => 'Teacher created',
