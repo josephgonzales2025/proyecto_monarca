@@ -17,11 +17,7 @@ return new class extends Migration
             $table->string('dni',8)->unique();
             $table->date('birthdate');
             $table->integer('age');
-            $table->foreignId('local_id')->nullable()->constrained('locals')->onDelete('set null');
             $table->string('specialty', 100);
-            $table->string('days', 255);
-            $table->time('start_time');
-            $table->time('end_time');
             $table->string('photo')->nullable();
             $table->timestamps();
         });

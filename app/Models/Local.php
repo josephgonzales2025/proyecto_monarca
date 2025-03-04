@@ -19,13 +19,7 @@ class Local extends Model
         'updated_at'
     ];
 
-    public function students()
-    {
-        return $this->hasMany(Student::class);
-    }
-
-    public function teachers()
-    {
-        return $this->hasMany(Teacher::class);
+    public function courses(){
+        return $this->hasMany(Course::class);
     }
 }

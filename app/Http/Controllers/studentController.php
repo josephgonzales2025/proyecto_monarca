@@ -32,8 +32,7 @@ class studentController extends Controller
             'name' => 'required|min:3|regex:/^[a-zA-Z\s]+$/',
             'dni' => 'required|unique:students|regex:/^[0-9]{8}$/',
             'birthdate' => 'required|date',
-            'age' => 'required|integer',
-            'local_id' => 'required|exists:locals,id'
+            'age' => 'required|integer'
         ]);
 
         if($validator->fails()){
@@ -76,8 +75,7 @@ class studentController extends Controller
             'name' => 'min:3|regex:/^[a-zA-Z\s]+$/',
             'dni' => 'unique:students|regex:/^[0-9]{8}$/',
             'birthdate' => 'date',
-            'age' => 'integer',
-            'local_id' => 'exists:locals,id'
+            'age' => 'integer'
         ];
 
         $validator = Validator::make($request->all(), $rules);

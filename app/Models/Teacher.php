@@ -12,18 +12,13 @@ class Teacher extends Model
         'dni',
         'birthdate',
         'age',
-        'local_id',
         'specialty',
         'days',
-        'start_time',
-        'end_time',
         'photo'
     ];
 
     protected $casts = [
-        'birthdate' => 'date',
-        'start_time' => 'datetime',
-        'end_time' => 'datetime'
+        'birthdate' => 'date'
     ];
 
     protected $hidden = [
@@ -31,9 +26,12 @@ class Teacher extends Model
         'updated_at'
     ];
 
-    public function local()
-    {
-        return $this->belongsTo(Local::class);
+    public function courses(){
+        return $this->hasMany(Course::class);
+    }
+
+    public function schedules(){
+        return $this->hasMany(Schedule::class);
     }
 
     public function getBirthdateAttribute($value){

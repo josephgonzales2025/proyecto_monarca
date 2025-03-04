@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('payments', function (Blueprint $table) {
+        Schema::create('enrollments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('student_id')->constrained('students')->onDelete('cascade');
-            //Faltaría agregar la relación con la tabla Empleados y añadirlo en el modelo y en el controlador.
-            $table->decimal('amount',6,2);
-            $table->date('paymentDate');
-            $table->enum('paymentStatus',['pending','cancelled'])->default('pending');
+            $table->foreignId('course_id')->constrained('courses')->onDelete('cascade');
+            $table->date('enrollment_date');
             $table->timestamps();
         });
     }
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('payments');
+        Schema::dropIfExists('enrollments');
     }
 };

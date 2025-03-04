@@ -17,4 +17,20 @@ class Course extends Model
         'created_at',
         'updated_at',
     ];
+
+    public function local(){
+        return $this->belongsTo(Local::class);
+    }
+
+    public function teacher(){
+        return $this->belongsTo(Teacher::class);
+    }
+
+    public function enrollments(){
+        return $this->hasMany(Enrollment::class);
+    }
+
+    public function schedules(){
+        return $this->hasMany(Schedule::class);
+    }
 }

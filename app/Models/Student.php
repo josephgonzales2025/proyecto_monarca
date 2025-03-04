@@ -11,8 +11,7 @@ class Student extends Model
         'name', 
         'dni', 
         'birthdate',
-        'age',
-        'local_id'
+        'age'
     ];
 
     protected $casts = [
@@ -24,13 +23,17 @@ class Student extends Model
         'updated_at'
     ];
 
-    public function local()
-    {
-        return $this->belongsTo(Local::class);
-    }
-
     public function getBirthdateAttribute($value)
     {
         return Carbon::parse($value)->format('d/m/Y');
+    }
+
+    public function payment()
+    {
+        return $this->hasMany(Payment::class);
+    }
+
+    public function enrollments(){
+        return $this->hasMany(Enrollment::class);
     }
 }

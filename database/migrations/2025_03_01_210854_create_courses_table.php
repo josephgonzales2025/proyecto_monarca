@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('description', 255);
             $table->string('duration', 255);
             $table->enum('status', ['active', 'inactive'])->default('active');
+            $table->foreignId('teacher_id')->nullable()->constrained('teachers')->onDelete('set null');
+            $table->foreignId('local_id')->nullable()->constrained('locals')->onDelete('set null');
             $table->timestamps();
         });
     }

@@ -31,11 +31,7 @@ class teacherController extends Controller
             'dni' => 'required|unique:teachers|regex:/^[0-9]{8}$/',
             'birthdate' => 'required|date',
             'age' => 'required|integer|min:18',
-            'local_id' => 'required|exists:locals,id',
             'specialty' => 'required|regex:/^[a-zA-Z\s]+$/',
-            'days' => 'required',
-            'start_time' => 'required',
-            'end_time' => 'required',
             'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validación de la foto
         ]);
 
@@ -89,11 +85,7 @@ class teacherController extends Controller
             'dni' => 'unique:teachers|regex:/^[0-9]{8}$/',
             'birthdate' => 'date',
             'age' => 'integer|min:18',
-            'local_id' => 'exists:locals,id',
-            'specialty' => 'regex:/^[a-zA-Z\s]+$/',
-            'days' => '',
-            'start_time' => '',
-            'end_time' => ''
+            'specialty' => 'regex:/^[a-zA-Z\s]+$/'
         ];
 
         $validator = Validator::make($request->all(), $rules);

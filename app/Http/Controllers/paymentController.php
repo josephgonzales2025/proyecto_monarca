@@ -28,8 +28,6 @@ class paymentController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'student_id' => 'required|exists:students,id',
-            'course_id' => 'required|exists:courses,id',
-            'teacher_id' => 'required|exists:teachers,id',
             'amount' => 'required|numeric',
             'paymentDate' => 'required|date',
             'paymentStatus' => 'required'
@@ -73,8 +71,6 @@ class paymentController extends Controller
 
         $rules = [
             'student_id' => 'exists:students,id',
-            'course_id' => 'exists:courses,id',
-            'teacher_id' => 'exists:teachers,id',
             'amount' => 'numeric',
             'paymentDate' => 'date',
             'paymentStatus' => ''
