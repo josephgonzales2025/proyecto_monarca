@@ -11,6 +11,8 @@ class Course extends Model
         'description',
         'duration',
         'status',
+        'teacher_id',
+        'local_id'
     ];
 
     protected $hidden = [

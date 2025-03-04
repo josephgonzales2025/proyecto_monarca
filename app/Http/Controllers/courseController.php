@@ -32,7 +32,9 @@ class courseController extends Controller
             'name' => 'required|min:3|unique:courses|regex:/^[a-zA-Z\s]+$/',
             'description' => 'required|min:3',
             'duration' => 'required',
-            'status' => 'required'
+            'status' => 'required',
+            'teacher_id' => 'required|exists:teachers,id',
+            'local_id' => 'required|exists:locals,id'
         ]);
 
         if($validator->fails()){
@@ -76,7 +78,9 @@ class courseController extends Controller
             'name' => 'min:3|regex:/^[a-zA-Z\s]+$/',
             'description' => 'min:3',
             'duration' => '',
-            'status' => ''
+            'status' => '',
+            'teacher_id' => 'exists:teachers,id',
+            'local_id' => 'exists:locals,id'
         ];
 
         $validator = Validator::make($request->all(), $rules);
