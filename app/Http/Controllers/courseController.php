@@ -16,9 +16,7 @@ class courseController extends Controller
         $course = Course::all();
 
         if($course->isEmpty()){
-            return response()->json([
-                'message' => 'No course found'
-            ], 404);
+            return response()->json(['message' => 'No course found'], 404);
         }
         return response()->json($course, 200);
     }
@@ -111,8 +109,6 @@ class courseController extends Controller
 
         $course->delete();
 
-        return response()->json([
-            'message' => 'Course deleted'
-        ], 200);
+        return response()->json(['message' => 'Course deleted'], 200);
     }
 }

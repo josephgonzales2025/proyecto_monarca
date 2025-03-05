@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\appointmentController;
 use App\Http\Controllers\clientController;
 use App\Http\Controllers\courseController;
 use App\Http\Controllers\localController;
@@ -74,3 +75,11 @@ Route::post('clients', [clientController::class, 'createClient']);
 Route::get('clients/{id}', [clientController::class, 'getClientById']);
 Route::put('clients/{id}', [clientController::class, 'updateClientById']);
 Route::delete('clients/{id}', [clientController::class, 'deleteClient']);
+
+
+// Rutas para appointments
+Route::get('appointments', [appointmentController::class, 'getAppointments']);
+Route::post('appointments', [appointmentController::class, 'createAppointment']);
+Route::get('appointments/{id}', [appointmentController::class, 'getAppointmenById']);
+Route::put('appointments/{id}', [appointmentController::class, 'updateAppointmentById']);
+Route::delete('appointments/{id}', [appointmentController::class, 'deleteAppointment']);
