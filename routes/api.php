@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\clientController;
 use App\Http\Controllers\courseController;
 use App\Http\Controllers\localController;
 use App\Http\Controllers\paymentController;
@@ -66,3 +67,10 @@ Route::post('payments', [paymentController::class, 'createPayment']);
 Route::get('payments/{id}', [paymentController::class, 'getPaymentById']);
 Route::put('payments/{id}', [paymentController::class, 'updatePaymentById']);
 Route::delete('payments/{id}', [paymentController::class, 'deletePayment']);
+
+// Rutas para clients
+Route::get('clients', [clientController::class, 'getClients']);
+Route::post('clients', [clientController::class, 'createClient']);
+Route::get('clients/{id}', [clientController::class, 'getClientById']);
+Route::put('clients/{id}', [clientController::class, 'updateClientById']);
+Route::delete('clients/{id}', [clientController::class, 'deleteClient']);

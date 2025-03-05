@@ -12,4 +12,12 @@ class Client extends Model
         'created_at',
         'updated_at'
     ];
+
+    public function individual(){
+        return $this->hasOne(Individual::class);
+    }
+
+    public function company(){
+        return $this->hasOne(Company::class);
+    }
 }
