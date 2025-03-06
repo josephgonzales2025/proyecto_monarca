@@ -75,7 +75,7 @@ Route::post('clients', [clientController::class, 'createClient']);
 Route::get('clients/{id}', [clientController::class, 'getClientById']);
 Route::put('clients/{id}', [clientController::class, 'updateClientById']);
 Route::delete('clients/{id}', [clientController::class, 'deleteClient']);
-
+Route::get('/clients/document/{document}', [ClientController::class, 'getClientByDocument']);
 
 // Rutas para appointments
 Route::get('appointments', [appointmentController::class, 'getAppointments']);

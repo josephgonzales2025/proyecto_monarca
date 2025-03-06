@@ -151,4 +151,22 @@ class clientController extends Controller
 
         return response()->json(['message' => 'Cliente eliminado'], 200);
     }
+
+    public function getClientByDocument($document)
+    {
+        $client = Client::with(['individual', 'company'])
+            ->whereHas('individual', function ($query) use ($document) {
+                $query->where('dni', $document);
+            })
+            ->orWhereHas('company', function ($query) use ($document) {
+                $query->where('ruc', $document);
+            })
+            ->first();
+
+        if (!$client) {
+            return response()->json(['message' => 'Cliente no encontrado'], 404);
+        }
+
+        return response()->json($client);
+    }
 }
