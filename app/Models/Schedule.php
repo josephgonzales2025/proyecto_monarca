@@ -24,10 +24,6 @@ class Schedule extends Model
         'updated_at'
     ];
 
-    public function teacher(){
-        return $this->belongsTo(Teacher::class);
-    }
-
     public function course(){
         return $this->belongsTo(Course::class);
     }

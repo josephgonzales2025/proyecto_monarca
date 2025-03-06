@@ -27,7 +27,6 @@ class scheduleController extends Controller
     public function createSchedule(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'teacher_id' => 'required|exists:teachers,id',
             'course_id' => 'required|exists:courses,id',
             'days' => 'required',
             'start_time' => 'required|date_format:H:i', // Valida que sea una hora en formato HH:MM',
@@ -71,7 +70,6 @@ class scheduleController extends Controller
         }
 
         $rules = [
-            'teacher_id' => 'exists:teachers,id',
             'course_id' => 'exists:courses,id',
             'days' => '',
             'start_time' => 'date_format:H:i',

@@ -30,10 +30,6 @@ class Teacher extends Model
         return $this->hasMany(Course::class);
     }
 
-    public function schedules(){
-        return $this->hasMany(Schedule::class);
-    }
-
     public function getBirthdateAttribute($value){
         return Carbon::parse($value)->format('d/m/Y');
     }
